@@ -45,11 +45,12 @@
 <body>
     <header>
         <h1>Jindal Hospital</h1>
-        <!-- Additional info -->
     </header>
 
     <nav>
+        <a href="file:///Users/yogesh/Desktop/Assignment/HMS%20Work/home.html">Home</a> |
         <a href="#about">About Us</a> |
+        <a href="file:///Users/yogesh/Desktop/Assignment/HMS%20Work/Login.html">Login</a> |
         <a href="#services">Services</a> |
         <a href="#doctors">Our Doctors</a> |
         <a href="#contact">Contact</a>
