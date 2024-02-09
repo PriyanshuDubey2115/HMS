@@ -23,6 +23,8 @@
             margin: 0;
             padding: 0;
             background: url('building.jpg') center center/cover no-repeat;
+            background-size: cover; 
+            background-position: bottom;
         }
 
         .login-container {
@@ -82,7 +84,7 @@
         <a href="file:///Users/yogesh/Desktop/Assignment/HMS%20Work/home.html">Home</a> |
         <a href="#about">About Us</a> |
         <a href="file:///Users/yogesh/Desktop/Assignment/HMS%20Work/Login.html">Login</a> |
-        <a href="#services">Services</a> |
+        <a href="file:///Users/yogesh/Desktop/Assignment/HMS%20Work/APPOINTMENT.html">Appointment</a> |
         <a href="#doctors">Our Doctors</a> |
         <a href="#contact">Contact</a>
     </nav>
