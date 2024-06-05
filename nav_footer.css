@@ -1,0 +1,86 @@
+.navBar{
+            background-color: #0066cc;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding-inline: 2rem;
+            padding-block: 1rem;
+        }
+
+        .navBarLeft,
+        .navBarRight{
+            display: flex;
+        }
+
+        .navBarRight{
+            padding-right: 4rem;
+        }
+
+        .navBarItem{
+            color: rgb(222, 222, 174);
+            padding-inline: 1.25rem;
+            text-decoration: none;
+        }
+        
+        th,td{
+          color: white;
+          border: 0;
+          padding-left: 2rem;
+          padding-right: 15rem;
+          text-align: left;
+        }
+        
+        .sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 50px;
+}
+
+.sidebar a {
+
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: blue;
+}
+
+#main {
+  transition: margin-left .5s;
+}
+.header {
+  padding: 10px 16px;
+  background: blue;
+  color: #f1f1f1;
+  text-align: center;   
+}

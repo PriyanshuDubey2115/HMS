@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment Form</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="nav_footer.css">
+  
+  <style>
+    
+  .container {
+    margin-left: 50px;
+    float: left;
+    width: 45%; /* Adjust width as needed */
+    margin-right: 30px; /* Optional spacing between containers */
+  }
+  
+  .container:last-child {
+    margin-right: 0; /* Remove margin from the last element */
+  }
+  .containers {
+    height: 100px;
+    float: left;
+    width: 45%; /* Adjust width as needed */
+    margin-right: 30px; /* Optional spacing between containers */
+  }
+  
+  .containers:last-child {
+    margin-right: 0; /* Remove margin from the last element */
+  }
+  </style>
+</head>
+
+<body >
+  <header>
+        <h1>Jindal Hospital</h1>
+    </header>
+<div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a href="Cardiology.html">CARDIOLOGY</a>
+      <a href="Dermatology.html">DERMATOLOGY</a>
+      <a href="ENT.html">ENT</a>
+      <a href="Gynecology.html">GYNECOLOGY</a>
+      <a href="Neurology.html">NEUROLOGY</a>
+      <a href="Trasplantation.html">TRANSPLANTATION</a>
+      <a href="Urology.html">UROLOGY</a>
+    </div>
+    <nav class="navBar">
+        <div class="navBarLeft">
+            <button id="main" class="openbtn" onclick="openNav()">☰</button> 
+            <a class= "navBarItem" href="home.html">Home</a>
+            <a class= "navBarItem" href="About.html">About Us</a> 
+            <a class= "navBarItem" href="APPOINTMENT.html">Appointment</a> 
+            <a class= "navBarItem" href="Registration.html">Patient Registration</a> 
+            <a class= "navBarItem" href="Report.html">Reports</a> 
+            <a class= "navBarItem" href="Cost.html">Cost</a>
+            <a class= "navBarItem" href="#contact">Contact</a>
+        </div>
+        <div class="navBarRight">
+            <a class= "navBarItem" href="Login.html">Login</a> 
+        </div>
+    </nav>
+    <script>
+      function redirectToSite(url) {
+  window.location.href = url;
+}
+
+    </script>
+  
+  <!DOCTYPE html>
+  <div class="container">  <div>
+      <b>
+        <h2 style="color: blue;">Dr. Priyanshu Dubey</h2>
+      </b>
+      <br>
+      <h3 style="color: black;">Director-Cardiology</h3>
+      <hr>
+      <br>
+      <p>
+        Cardiology
+        <br>
+        Experience:20 years
+        <br>
+        Gender: Male
+      </p>
+      <button type="button" style="background-color: blue;color:white" onclick="redirectToSite('http://127.0.0.1:5500/Appointment2.html')">Request appointment</button>
+    </div>
+  </div>
+  
+  <div class="container">  <div>
+      <b>
+        <h2 style="color: blue; ">Dr. Manya Gandhi</h2>
+      </b>
+      <br>
+      <h3 style="color: black;">Director-Neruology</h3>
+      <hr>
+      <br>
+      <p>
+        Neurology
+        <br>
+        Experience:20 years
+        <br>
+        Gender: Female
+      </p>
+      <button type="button" style="background-color: blue;color:white" onclick="redirectToSite('http://127.0.0.1:5500/appointment2.html')">Request appointment</button>
+    </div>
+  </div>
+  
+  <div class="container">  <div>
+      <b>
+        <h2 style="color: blue;">Dr. Yogesh Jain</h2>
+      </b>
+      <br>
+      <h3 style="color: black;">Director-Dermatalogy</h3>
+      <hr>
+      <br>
+      <p>
+        Dermatology
+        <br>
+        Experience:25 years
+        <br>
+        Gender: Male
+      </p>
+      <button type="button" style="background-color: blue;color: white;"   onclick="redirectToSite('http://127.0.0.1:5500/appointment2.html')">Request appointment</button>
+    </div>
+  </div>
+  
+  <div class="container">  <div>
+      <b>
+        <h2 style="color: blue;">Dr. Brijanshi Rastogi</h2>
+      </b>
+      <br>
+      <h3 style="color: black;">Director-Gynecology</h3>
+      <hr>
+      <br>
+      <p>
+        Gynecology
+        <br>
+        Experience:22 years
+        <br>
+        Gender: Female
+      </p>
+      <button type="button" style="background-color: blue; color: white;" onclick="redirectToSite('http://127.0.0.1:5500/appointment2.html')">Request appointment</button>
+    </div>
+  </div>
+  <div class="container">  <div>
+    <b>
+      <h2 style="color: blue;">Dr. Kushagra Bhardawaj</h2>
+    </b>
+    <br>
+    <h3 style="color: black;">Director-Urology</h3>
+    <hr>
+    <br>
+    <p>
+      Urology
+      <br>
+      Experience:15 years
+      <br>
+      Gender: Male
+    </p>
+    <button type="button" style="background-color: blue; color:white" onclick="redirectToSite('http://127.0.0.1:5500/appointment2.html')">Request appointment</button>
+  </div>
+</div>
+<div class="container">  <div>
+  <b>
+    <h2 style="color: blue;">Dr. Pallavi Kathait</h2>
+  </b>
+  <br>
+  <h3 style="color: black;">Director-Transplantation</h3>
+  <hr>
+  <br>
+  <p>
+    Transplantation
+    <br>
+    Experience:30 years
+    <br>
+    Gender: Female
+  </p>
+  <button type="button" style="background-color: blue;color: white;" onclick="redirectToSite('http://127.0.0.1:5500/appointment2.html')">Request appointment</button>
+</div>
+</div>
+  
+  
+</div>
+
+
+
+      
+
+  </div>
+  <footer id="contact">
+        <table>
+            <thead>
+                <tr>
+                    <th>Address</th>
+                    <th>Contact</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Jindal Hospital<br>
+                        Address Line 1<br>
+                        Address Line 2
+                    </td>
+                    <td>
+                        If you have any questions, feel free to contact us:<br>
+                        Phone: +91 1234567890<br>
+                        Email: info@jindalhospital.com
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+            <br>
+        </div>
+        <p>&copy; 2024 Jindal Hospital. All rights reserved.</p>
+    </footer>
+    <script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+</body>
+</html>

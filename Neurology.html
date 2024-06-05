@@ -1,0 +1,110 @@
+
+<html>
+<head>
+
+<title>
+Neurology Department 
+</title>
+<link rel="stylesheet" href="nav_footer.css">
+<link rel="stylesheet" href="style.css">
+<style>
+h1{
+text-align  :center;
+font-family :Times New Roman;
+}
+.image-container {
+        width: 100%;
+        height: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
+</head>
+<body background-colour="white">
+	<header>
+  <h1>Jindal Hospital</h1>
+</header>
+	<div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a href="Cardiology.html">CARDIOLOGY</a>
+      <a href="Dermatology.html">DERMATOLOGY</a>
+      <a href="ENT.html">ENT</a>
+      <a href="Gynecology.html">GYNECOLOGY</a>
+      <a href="Neurology.html">NEUROLOGY</a>
+      <a href="Trasplantation.html">TRANSPLANTATION</a>
+      <a href="Urology.html">UROLOGY</a>
+    </div>
+    <nav class="navBar">
+        <div class="navBarLeft">
+            <button id="main" class="openbtn" onclick="openNav()">☰</button> 
+            <a class= "navBarItem" href="home.html">Home</a> 
+            <a class= "navBarItem" href="About.html">About Us</a> 
+            <a class= "navBarItem" href="APPOINTMENT.html">Appointment</a> 
+            <a class= "navBarItem" href="Registration.html">Patient Resgistration</a> 
+            <a class= "navBarItem" href="Report.html">Reports</a>
+            <a class= "navBarItem" href="Cost.html">Cost</a> 
+            <a class= "navBarItem" href="#contact">Contact</a>
+        </div>
+        <div class="navBarRight">
+            <a class= "navBarItem" href="Login.html">Login</a> 
+        </div>
+    </nav>
+<h1><b>DEPARTMENT OF NEUROLOGY</b></h1>
+<div class="image-container">
+    <img src="https://tse3.mm.bing.net/th?id=OIP.c1V21KBf0Z5hCQFUEhqAMQHaDF&pid=Api&P=0&h=180">
+</div>
+
+<p>Neurology deals with the evaluation, diagnosis, and management of disorders of the brain, spinal cord, peripheral nerves, neuromuscular junction and muscles. As a healthcare provider dedicated to providing the finest possible care, the Department of Neurology at Jindal Hospitals provide comprehensive diagnostic and therapeutic Neurology services as per internationally accepted evidence-based protocols.
+</p>
+<br>
+<br>
+<footer id="contact">
+        <table>
+            <thead>
+                <tr>
+                    <th>Address</th>
+                    <th>Contact</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Jindal Hospital<br>
+                        Address Line 1<br>
+                        Address Line 2
+                    </td>
+                    <td>
+                        If you have any questions, feel free to contact us:<br>
+                        Phone: +91 1234567890<br>
+                        Email: info@jindalhospital.com
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+            <br>
+        </div>
+        <p>&copy; 2024 Jindal Hospital. All rights reserved.</p>
+    </footer>
+    <script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+
+</body>
+</html>

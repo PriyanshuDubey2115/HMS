@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="costCalculatorApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neurology Department</title>
+  <link rel="stylesheet" href="nav_footer.css">
+  <link rel="stylesheet" href="style.css">
+  <style> 
+    h1 {
+      text-align: center;
+      font-family: Times New Roman;
+    }
+    .image-container {
+      width: 100%;
+      height: 60%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    table, th, td {
+      border: 1px solid black;
+      padding: 10px;
+    }
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+      text-align: center;
+      background-color: #8aaae5;
+    }
+  </style>
+  <!-- Include AngularJS library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body style="background-image: url('https://img.freepik.com/free-photo/display-charcoal-different-forms_23-2149654169.jpg?w=360&t=st=1712345819~exp=1712346419~hmac=80bc36cec46a3d99b9ab08aaaa4e1d045a533f502c3615e215b0aa726e986f79');">
+  <header>
+    <h1>Jindal Hospital</h1>
+  </header>
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="Cardiology.html">CARDIOLOGY</a>
+    <a href="Dermatology.html">DERMATOLOGY</a>
+    <a href="ENT.html">ENT</a>
+    <a href="Gynecology.html">GYNECOLOGY</a>
+    <a href="Neurology.html">NEUROLOGY</a>
+    <a href="Trasplantation.html">TRANSPLANTATION</a>
+    <a href="Urology.html">UROLOGY</a>
+  </div>
+  <nav class="navBar">
+    <div class="navBarLeft">
+      <button id="main" class="openbtn" onclick="openNav()">☰</button> 
+      <a class="navBarItem" href="home.html">Home</a> 
+      <a class="navBarItem" href="About.html">About Us</a> 
+      <a class="navBarItem" href="APPOINTMENT.html">Appointment</a> 
+      <a class="navBarItem" href="Registration.html">Patient Resgistration</a> 
+      <a class="navBarItem" href="Report.html">Reports</a>
+      <a class= "navBarItem" href="Cost.html">Cost</a> 
+      <a class="navBarItem" href="#contact">Contact</a>
+    </div>
+    <div class="navBarRight">
+      <a class="navBarItem" href="Login.html">Login</a> 
+    </div>
+  </nav>
+  <div class="center">
+    <br>
+    <h2 style="text-align: center;">CONSULTATION FEES</h2>
+    <table style="margin: auto;">
+      <tr>
+        <th>NAME</th>
+        <th>FEES(Rs)</th>
+        <th>DISCOUNT(%)</th>
+      </tr>
+      <tr>
+        <td>Dr.Priyanshu Dubey</td>
+        <td>1500</td>
+        <td>15%</td>
+      </tr>
+      <tr>
+        <td>Dr.Yogesh Jain</td>            
+        <td>1000</td>
+        <td>30%</td>
+      </tr>
+      <tr>
+        <td>Dr.Brijanshi Rastogi</td>            
+        <td>1000</td>
+        <td>50%</td>
+      </tr>
+      <tr>
+        <td>Dr.Manya Gandhi</td>            
+        <td>2000</td>
+        <td>20%</td>
+      </tr>
+      <tr>
+        <td>Dr.Pallavi Kathait</td>            
+        <td>2000</td>
+        <td>25%</td>
+      </tr>
+      <tr>
+        <td>Dr.Kushagra Bhardawaj</td>            
+        <td>1500</td>
+        <td>15%</td>
+      </tr>
+    </table>
+    <br>
+  </div>
+
+  <div ng-controller="CostCalculatorController" class="center">
+    <label for="doctor">Select Doctor:</label><br>
+    <select id="doctor" ng-model="selectedDoctor" ng-change="updateDoctorInfo()">
+      <option value="">Select a Doctor</option>
+      <option value="Dr.Priyanshu Dubey">Dr.Priyanshu Dubey</option>
+      <option value="Dr.Yogesh Jain">Dr.Yogesh Jain</option>
+      <option value="Dr.Brijanshi Rastogi">Dr.Brijanshi Rastogi</option>
+      <option value="Dr.Manya Gandhi">Dr.Manya Gandhi</option>
+      <option value="Dr.Pallavi Kathait">Dr.Pallavi Kathait</option>
+      <option value="Dr.Kushagra Bhardawaj">Dr.Kushagra Bhardawaj</option>
+    </select><br><br>
+
+    <label for="quantity">Number of appointments:</label><br>
+    <input type="number" id="quantity" ng-model="quantity" ng-change="calculateTotal()" min="0"><br><br>
+
+    <label for="price">Fees of each doctor:</label><br>
+    <input type="number" id="price" ng-model="price" ng-change="calculateTotal()" min="0" readonly><br><br>
+
+    <label for="discount">Discount (%):</label><br>
+    <input type="number" id="discount" ng-model="discount" ng-change="calculateTotal()" min="0" max="100" readonly><br><br>
+
+    <hr>
+
+    <p>Total Cost: {{ totalCost | currency:"₹" }}</p><br><br>
+    <div style="color: red;">Note:Discount only valid for government employees</div>
+  </div>
+  
+  <footer id="contact">
+    <table>
+      <thead>
+        <tr>
+          <th>Address</th>
+          <th>Contact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Jindal Hospital<br>
+            Address Line 1<br>
+            Address Line 2
+          </td>
+          <td>
+            If you have any questions, feel free to contact us:<br>
+            Phone: +91 1234567890<br>
+            Email: info@jindalhospital.com
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <p>&copy; 2024 Jindal Hospital. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+    }
+
+    angular.module('costCalculatorApp', [])
+      .controller('CostCalculatorController', function($scope) {
+        $scope.quantity = 0;
+        $scope.price = 0;
+        $scope.discount = 0;
+        $scope.totalCost = 0;
+        $scope.selectedDoctor = "";
+
+        $scope.updateDoctorInfo = function() {
+          switch ($scope.selectedDoctor) {
+            case "Dr.Priyanshu Dubey":
+              $scope.price = 1500;
+              $scope.discount = 15;
+              break;
+            case "Dr.Yogesh Jain":
+              $scope.price = 1000;
+              $scope.discount = 30;
+              break;
+            case "Dr.Brijanshi Rastogi":
+              $scope.price = 1000;
+              $scope.discount = 50;
+              break;
+            case "Dr.Manya Gandhi":
+              $scope.price = 2000;
+              $scope.discount = 20;
+              break;
+            case "Dr.Pallavi Kathait":
+              $scope.price = 2000;
+              $scope.discount = 25;
+              break;
+            case "Dr.Kushagra Bhardawaj":
+              $scope.price = 1500;
+              $scope.discount = 15;
+              break;
+            default:
+              $scope.price = 0;
+              $scope.discount = 0;
+              break;
+          }
+          $scope.calculateTotal();
+        };
+
+        $scope.calculateTotal = function() {
+          
+          var subtotal = $scope.quantity * $scope.price;
+          var discountAmount = (subtotal * $scope.discount) / 100;
+          $scope.totalCost = subtotal - discountAmount;
+        };
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appointmentApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment Form</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="nav_footer.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="AppointmentController">
+  <header>
+    <h1>Jindal Hospital</h1>
+  </header>
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="Cardiology.html">CARDIOLOGY</a>
+    <a href="Dermatology.html">DERMATOLOGY</a>
+    <a href="ENT.html">ENT</a>
+    <a href="Gynecology.html">GYNECOLOGY</a>
+    <a href="Neurology.html">NEUROLOGY</a>
+    <a href="Trasplantation.html">TRANSPLANTATION</a>
+    <a href="Urology.html">UROLOGY</a>
+  </div>
+  <nav class="navBar">
+    <div class="navBarLeft">
+      <button id="main" class="openbtn" onclick="openNav()">☰</button> 
+      <a class= "navBarItem" href="home.html">Home</a>
+      <a class= "navBarItem" href="About.html">About Us</a> 
+      <a class= "navBarItem" href="APPOINTMENT.html">Appointment</a> 
+      <a class= "navBarItem" href="Registration.html">Patient Registration</a> 
+      <a class= "navBarItem" href="Report.html">Reports</a> 
+      <a class= "navBarItem" href="Cost.html">Cost</a>
+      <a class= "navBarItem" href="#contact">Contact</a>
+    </div>
+    <div class="navBarRight">
+      <a class= "navBarItem" href="Login.html">Login</a> 
+    </div>
+  </nav>
+  <div class="container">
+    <h2>APPOINTMENT FORM</h2>
+    <form id="appointmentForm" name="appointmentForm" ng-submit="submitForm()" novalidate>
+      <label for="name">Patient's Name:</label>
+      <input type="text" id="name" name="name" ng-model="formData.name" ng-required="true" ng-pattern="/^[a-zA-Z ]+$/">
+      <small style="color: red;" ng-show="appointmentForm.name.$error.required">Name is required</small>
+      <small style="color: red;" ng-show="registrationForm.name.$error.pattern">Name can only contain letters and spaces</small>
+
+      <label for="sex">Patient's Sex:</label>
+      <select id="sex" name="sex" ng-model="formData.sex" required>
+        <option value="">Select Sex</option>
+        <option value="FEMALE">FEMALE</option>
+        <option value="MALE">MALE</option>
+        <option value="OTHERS">OTHERS</option>
+      </select>
+      <small style="color: red;" ng-show="appointmentForm.sex.$error.required">Sex is required</small>
+
+      <label for="age">Patient's Age:</label>
+      <input type="number" id="age" name="age" ng-model="formData.age" min="0" max="999" required>
+      <small style="color: red;" ng-show="appointmentForm.age.$error.required">Age is required</small>
+      <small style="color: red;" ng-show="appointmentForm.age.$error.min || appointmentForm.age.$error.max">Age must be between 0 and 999</small>
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" ng-model="formData.phone" ng-pattern="/^\d{10}$/" required>
+      <small style="color: red;" ng-show="appointmentForm.phone.$error.required">Phone number is required</small>
+      <small style="color: red;" ng-show="appointmentForm.phone.$error.pattern">Phone number must be 10 digits long</small>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" ng-model="formData.email" required>
+      <small style="color: red;" ng-show="appointmentForm.email.$error.required">Email is required</small>
+      <small style="color: red;" ng-show="appointmentForm.email.$error.email">Invalid email address</small>
+
+      <label for="date">Preferred Date:</label>
+      <input type="date" id="date" name="date" ng-model="formData.date" future-date required>
+      <small style="color: red;" ng-show="appointmentForm.date.$error.required">Preferred date is required</small>
+      <small style="color: red;" ng-show="appointmentForm.date.$error.futureDate">Preferred date cannot be in the past</small>
+
+      <label for="time">Preferred Time:</label>
+      <input type="time" id="time" name="time" ng-model="formData.time" required>
+
+      <label for="department">Select Department:</label>
+      <select id="department" name="department" ng-model="formData.department" required>
+        <option value="" disabled selected>Select Department</option>
+        <option value="EMERH">EMERGENCY ONLY</option>
+        <option value="NEUROLOGY">NEUROLOGY</option>
+        <option value="PSYCHIATRY">PSYCHIATRY</option>
+        <option value="CARDIOLOGY">CARDIOLOGY</option>
+        <option value="ONCOLOGY">ONCOLOGY</option>
+        <option value="GYNAECOLOGY">GYNAECOLOGY</option>
+        <option value="DERMETAOLOGY">DERMETAOLOGY</option>
+      </select>
+      <small style="color: red;" ng-show="appointmentForm.department.$error.required">Department is required</small>
+
+      <label for="doctor">Select Doctor:</label>
+      <select id="doctor" name="doctor" ng-model="formData.doctor" required>
+        <option value="" disabled selected>Select Doctor</option>
+        <option value="Dr. BRIJANSHI RASTOGI">Dr.BRIJANSHI RASTOGI</option>
+        <option value="Dr. PALLAVI KATHAIT">Dr.PALLAVI KATHAIT</option>
+        <option value="Dr. YOGESH JAIN">Dr.YOGESH JAIN</option>
+        <option value="Dr. MANYA GANDHIN">Dr. MANYA GANDHIN</option>
+        <option value="Dr. PRIYANSHU DUBEY">Dr.PRIYANSHU DUBEY</option>
+        <option value="Dr. KUSHAGRA BHARDWAJ">Dr.KUSHAGRA BHARDWAJ</option>
+      </select>
+      <small style="color: red;" ng-show="appointmentForm.doctor.$error.required">Doctor is required</small>
+
+      <label for="reason">Reason for Appointment:</label>
+      <textarea id="reason" name="reason" ng-model="formData.reason" rows="4" required></textarea>
+      <small style="color: red;" ng-show="appointmentForm.reason.$error.required">Reason for appointment is required</small>
+
+      <label for="notes">Additional Notes:</label>
+      <textarea id="notes" name="notes" ng-model="formData.notes" rows="4"></textarea>
+
+      <button class="button" type="submit">Submit</button>
+    </form>
+  </div>
+  <footer id="contact">
+    <table>
+      <thead>
+        <tr>
+          <th>Address</th>
+          <th>Contact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Jindal Hospital<br>
+            Address Line 1<br>
+            Address Line 2
+          </td>
+          <td>
+            If you have any questions, feel free to contact us:<br>
+            Phone: +91 1234567890<br>
+            Email: info@jindalhospital.com
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+  </div>
+  <p>&copy; 2024 Jindal Hospital. All rights reserved.</p>
+</footer>
+<script>
+  angular.module('appointmentApp', [])
+  .controller('AppointmentController', ['$scope', function($scope) {
+    $scope.formData = {};
+
+    $scope.submitForm = function() {
+      // Additional validation logic here, if needed
+      console.log('Form submitted:', $scope.formData);
+    };
+  }])
+  .directive('futureDate', function() {
+    return {
+      require: 'ngModel',
+      link: function(scope, element, attrs, ngModelCtrl) {
+        ngModelCtrl.$validators.futureDate = function(modelValue) {
+          if (modelValue) {
+            return new Date(modelValue) >= new Date();
+          }
+          return true;
+        };
+      }
+    };
+  });
+</script>
+</body>
+</html>

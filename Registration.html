@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="patientRegistrationApp">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient's Reports</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="nav_footer.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+
+<body ng-controller="RegistrationController">
+  <header>
+    <h1>Jindal Hospital</h1>
+  </header>
+</header>
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="Cardiology.html">CARDIOLOGY</a>
+  <a href="Dermatology.html">DERMATOLOGY</a>
+  <a href="ENT.html">ENT</a>
+  <a href="Gynecology.html">GYNECOLOGY</a>
+  <a href="Neurology.html">NEUROLOGY</a>
+  <a href="Trasplantation.html">TRANSPLANTATION</a>
+  <a href="Urology.html">UROLOGY</a>
+</div>
+<nav class="navBar">
+  <div class="navBarLeft">
+    <button id="main" class="openbtn" onclick="openNav()">☰</button> 
+    <a class= "navBarItem" href="home.html">Home</a>
+    <a class= "navBarItem" href="About.html">About Us</a> 
+    <a class= "navBarItem" href="APPOINTMENT.html">Appointment</a> 
+    <a class= "navBarItem" href="Registration.html">Patient Registration</a> 
+    <a class= "navBarItem" href="Report.html">Reports</a> 
+    <a class= "navBarItem" href="Cost.html">Cost</a>    
+    <a class= "navBarItem" href="#contact">Contact</a>
+  </div>
+  <div class="navBarRight">
+    <a class= "navBarItem" href="Login.html">Login</a> 
+  </div>
+</nav>
+  
+  <div class="container">
+    <h2>PATIENT REGISTRATION FORM</h2>
+    <form id="registrationForm" name="registrationForm" ng-submit="submitForm()" novalidate>
+      <label for="name">Patient's Name:</label>
+      <input type="text" id="name" name="name" ng-model="formData.name" ng-required="true" ng-pattern="/^[a-zA-Z ]+$/">
+      <small style="color: red;" ng-show="registrationForm.name.$error.required">Name is required</small>
+      <small style="color: red;" ng-show="registrationForm.name.$error.pattern">Name can only contain letters and spaces</small>
+      
+      <label for="DOB">Date of birth:</label>
+      <input type="date" id="date" name="date" ng-model="formData.date" ng-required="true" future-date>
+      <small style="color: red;" ng-show="registrationForm.date.$error.required">Date of birth is required</small>
+      <small style="color: red;" ng-show="registrationForm.date.$error.futureDate">Date of birth cannot be in the future</small>
+
+      <label for="SEX">Patient's Gender:</label>
+      <select id="sex" name="sex" ng-model="formData.sex" ng-required="true">
+        <option value="">Select Gender</option>
+        <option value="FEMALE">FEMALE</option>
+        <option value="MALE">MALE</option>
+        <option value="OTHERS">OTHERS</option>
+      </select>
+      <small style="color: red;" ng-show="registrationForm.sex.$error.required">Gender is required</small>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" ng-model="formData.email" ng-required="true">
+      <small style="color: red;" ng-show="registrationForm.email.$error.required">Email is required</small>
+      <small style="color: red;" ng-show="registrationForm.email.$error.email">Invalid email address</small>
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" ng-model="formData.phone" ng-required="true" ng-pattern="/^\d{10}$/">
+      <small style="color: red;" ng-show="registrationForm.phone.$error.required">Phone number is required</small>
+      <small style="color: red;" ng-show="registrationForm.phone.$error.pattern">Phone number must be 10 digits long</small>
+
+      <label for="address">Enter your address:</label>
+      <input type="text" id="address" name="address" ng-model="formData.address" placeholder="Enter your full address" ng-required="true" ng-pattern="/^[a-zA-Z0-9\s\,\.\-]*$/">
+      <small style="color: red;" ng-show="registrationForm.address.$error.required">Address is required</small>
+      <small style="color: red;" ng-show="registrationForm.address.$error.pattern">Address can contain only letters, numbers, spaces, commas, periods, and hyphens.</small>
+
+      <label for="reason">Medical history(Brief):</label>
+      <textarea id="reason" name="reason" ng-model="formData.reason" rows="4" ng-required="true"></textarea>
+      <small style="color: red;" ng-show="registrationForm.reason.$error.required">Medical history is required</small>
+
+      <button class="button" type="submit">Register</button>
+    </form>
+  </div>
+
+  < <footer id="contact">
+    <table>
+      <thead>
+        <tr>
+          <th>Address</th>
+          <th>Contact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Jindal Hospital<br>
+            Address Line 1<br>
+            Address Line 2
+          </td>
+          <td>
+            If you have any questions, feel free to contact us:<br>
+            Phone: +91 1234567890<br>
+            Email: info@jindalhospital.com
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+  </div>
+  <p>&copy; 2024 Jindal Hospital. All rights reserved.</p>
+</footer>
+<script>
+  function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+
+</script>
+    
+
+  <script>
+    angular.module('patientRegistrationApp', [])
+    .controller('RegistrationController', ['$scope', function($scope) {
+      $scope.formData = {};
+
+      $scope.submitForm = function() {
+        // Additional validation logic here, if needed
+        console.log('Form submitted:', $scope.formData);
+      };
+    }])
+    .directive('futureDate', function() {
+      return {
+        require: 'ngModel',
+        link: function(scope, element, attrs, ngModelCtrl) {
+          ngModelCtrl.$validators.futureDate = function(modelValue) {
+            if (modelValue) {
+              return new Date(modelValue) <= new Date();
+            }
+            return true;
+          };
+        }
+      };
+    });
+  </script>
+</body>
+</html>

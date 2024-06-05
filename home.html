@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jindal Hospital</title>
+    
+    <link rel="stylesheet" href="nav_footer.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #003366;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        section {
+            padding: 1em;
+        }
+
+        footer {
+            background-color: #003366;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        .about-image{
+flex: 1;
+margin-right: 15px;
+overflow: hidden;
+float:left;
+}
+.about-image img{
+width: 300px;
+height: 500px;;
+display: block;
+transition: 0.5s ease;
+}
+
+#slider-container {
+      overflow: hidden;
+      position: relative;
+      width: 600px; /* Set a fixed width here */
+      height: 300px; /* Set a fixed height here */
+    }
+
+    #slider-container img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      opacity: 0;
+      transition: 0.5s ease;
+    }
+
+    #slider-container img.active {
+      opacity: 1;
+    }
+
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%); /* Center buttons vertically */
+      width: auto;
+      padding: 16px;
+      margin-top: 0; /* Reset default margin */
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      background-color: rgba(0, 0, 0, 0.8);
+      opacity: 0.7; /* Add slight transparency */
+    }
+
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .prev {
+      left: 0;
+    }
+
+    .next {
+      right: 0;
+    }
+    #logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+#logo {
+    height: 100%;
+  animation: fadeInOut 5s ease forwards, logoScale 5s ease forwards;
+  opacity: 0;
+}
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    
+  }
+  10% {
+    opacity: 1;
+  }
+  50%{
+    opacity: 0.75;
+  }
+  90% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 0;
+    
+  }
+}
+@keyframes logoScale {
+      0% {
+        transform: scale(0.2);
+      }
+      100% {
+        transform: scale(1);}}
+        .text{
+  opacity: 0;
+  transition: 1;
+
+}
+.slide:hover .text{
+  /* transform: translate(0px); */
+  opacity: 1;
+}
+.blog{
+  position: absolute;
+  top: 170px;
+  right: 100px;
+  color: white;
+  font-size: 40px;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+}
+.h1_photo{
+  position: absolute;
+  top: 100px;
+  right: 100px;
+  color: black;
+  font-size: 40px;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+}
+.p_photo{
+        position: absolute;
+        width: 50%;
+        bottom: 180px;
+        right: 10px;
+        color:black;
+        font-size: 20px;
+        font-weight: 800;
+        /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
+        /* backdrop-filter: blur(15px); */
+      }
+      .slider{
+        margin-top: 6.8%;
+        width: 100%;
+        height: 635px;
+        border-radius: 10px;
+        overflow: hidden;
+        position:relative;
+
+      }
+
+      .slides{
+        width: 500%;
+        height: 690px;
+        display: flex;
+      }
+
+      .slides input{
+        display: none;
+      }
+
+      .slide{
+        width: 20%;
+        transition: 2s;
+      }
+      .slide img{
+        width: 100%;
+        height: 700px;
+      }
+      .navigation-manual{
+        position: absolute;
+        width: 800px;
+        margin-top: -90px;
+        display: flex;
+        margin-left: 350px;
+        justify-content: center;
+      }
+
+      .manual-btn{
+        border:2px solid white;
+        padding: 5px;
+        border-radius: 10px;
+        cursor:pointer;
+        transition: 1s;
+      }
+
+      .manual-btn:not(:last-child){
+        margin-right: 40px;
+      }
+
+      .manual-btn:hover{
+        background: white;
+      }
+#radio1:checked ~ .first{
+  margin-left: -0%;
+}
+
+#radio2:checked ~ .first{
+  margin-left: -20%;
+}
+#radio3:checked ~ .first{
+  margin-left: -40%;
+}
+#radio4:checked ~ .first{
+  margin-left: -60%;
+}
+
+.navigation-auto{
+  position: absolute;
+  display: flex;
+  width: 1500px;
+  justify-content: center;
+  margin-top: 600px;
+}
+
+.navigation-auto div{
+  border: 2px solid white;
+  padding: 5px;
+  border-radius: 10px;
+  transition: 1s;
+}
+.navigation-auto div:not(:last-child){
+  margin-right: 40px;
+}
+#radio1:checked ~ .navigation-auto .auto-btn1{
+  background: white;
+}
+#radio2:checked ~ .navigation-auto .auto-btn2{
+  background: white;
+}
+#radio3:checked ~ .navigation-auto .auto-btn3{
+  background: white;
+}
+#radio4:checked ~ .navigation-auto .auto-btn4{
+  background:white;
+  @media screen and (max-width:1024px) {.navigation-manual{
+    display: none;
+  }
+  .navigation-auto{
+    display: none;
+  }
+  .p_photo{
+    display:none;
+}}
+}
+
+
+    </style>
+    <script>
+        // Hide all elements except logo-container for 5 seconds
+       window.addEventListener("load", function() {
+           const elementsToHide = document.querySelectorAll('body > *:not(#logo-container)');
+           elementsToHide.forEach(element => {
+             element.style.display = 'none';
+           });
+     
+           setTimeout(() => {
+             elementsToHide.forEach(element => {
+               element.style.display = '';
+             });
+           document.getElementById('logo-container').style.display = 'none'; // Hide logo-container after 5.5 seconds
+     
+           
+           }, 5500);
+         });
+     
+     </script>
+</head>
+
+<body>
+    <div id="logo-container">
+        <img src="IMG_2533.png" alt="Jindal Logo" id="logo">
+      </div>
+    
+    <header>
+        <h1>Jindal Hospital</h1>
+    </header>
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a href="Cardiology.html">CARDIOLOGY</a>
+      <a href="Dermatology.html">DERMATOLOGY</a>
+      <a href="ENT.html">ENT</a>
+      <a href="Gynecology.html">GYNECOLOGY</a>
+      <a href="Neurology.html">NEUROLOGY</a>
+      <a href="Trasplantation.html">TRANSPLANTATION</a>
+      <a href="Urology.html">UROLOGY</a>
+    </div>
+    <nav class="navBar">
+        <div class="navBarLeft">
+            <button id="main" class="openbtn" onclick="openNav()">☰</button> 
+            <a class= "navBarItem" href="home.html">Home</a> 
+            <a class= "navBarItem" href="About.html">About Us</a> 
+            <a class= "navBarItem" href="APPOINTMENT.html">Appointment</a> 
+            <a class= "navBarItem" href="Registration.html">Patient Registration</a> 
+            <a class= "navBarItem" href="Report.html">Reports</a>
+            <a class= "navBarItem" href="Cost.html">Cost</a>  
+            <a class= "navBarItem" href="#contact">Contact</a>
+        </div>
+        <div class="navBarRight">
+            <a class= "navBarItem" href="Login.html">Login</a> 
+        </div>
+    </nav>
+    
+<div style="height: 25px">
+        <marquee behavior="scroll" direction="left" scrollamount="5" style="width: 100%; font-size: 1rem; background: #fff; color: black;">   
+            Advisory Notice: Please be aware of Cyber fraud, Hackers asking to pay by any fraud link to book Doctor Appointment. Jindal Hospital never sends any web link for payments.
+        </marquee>
+    </div>
+
+    <div class="slider">
+        <div class="slides">
+          <input type="radio" name="radio-btn" id="radio1">
+          <input type="radio" name="radio-btn" id="radio2">
+          <input type="radio" name="radio-btn" id="radio3">
+          <input type="radio" name="radio-btn" id="radio4">
+    
+          <div class="slide first">
+            <a href="load.html"><img src="https://t3.ftcdn.net/jpg/06/12/89/52/360_F_612895290_5m4XeQsdmekGhrRlgId6HB3jfPkKvzwq.jpg ">
+                            <div class="text" id="text1">
+              <h1 class="h1_photo">Why choose us?</h1>
+              
+              <p class="p_photo">
+                Established by Dr. Keshav Jindal in 2003, Jindal hospital has a robust presence across the healthcare ecosystem. 
+                Our reputation for outstanding care and family-like atmosphere, together with advanced medical technology and facilities ensures we attract leading consultants and specialists from the industry to work with us. All our clinicians are board-certified and come with very high credentials within their field of speciality. 
+              </p>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="text" id="text2">
+                <a href="load.html"><img src="https://img.freepik.com/free-psd/interior-modern-emergency-room-with-empty-nurses-station-generative-ai_587448-2137.jpg">
+              <h1 class="h1_photo"> Right care, Right time</h1>
+              <br>
+              <p class="p_photo">
+                At Jindal Hospital we are committed to providing our patients with advanced medical and surgical treatments with access to the latest treatment technology available at the right time , henceforth promising right care at the right time!
+            
+              </p>
+    
+            </div>
+          </div>
+          <div class="slide">
+            <a href="load.html"><img src=https://www.shutterstock.com/image-photo/medicine-doctor-hand-working-modern-600nw-133503068.jpg>      
+                 <div class="text" id="text3">
+              <h1 class="h1_photo">Specialities, Services & Treatments</h1>
+              <p class="p_photo">
+                At Jindal Hospital, we understand that every patient is unique, and their healthcare needs require tailored solutions. That's why we offer a versatile range of treatments designed to address a wide spectrum of medical conditiong ranging from Cardiology, gynaceology,Urology,Neurology,Dermatology etc.
+                </p>
+            </div>
+          </div>
+          <div class="slide">
+            <a href="load.html"><img src="https://c1.wallpaperflare.com/preview/451/179/819/the-device-hospital-surgery-ambulance.jpg" alt="img4"></a>
+            <div class="text" id="text4">
+              <h1 class="blog">Advanced Resources and Facilities</h1>
+              <p class="p_photo">
+                At Jindal Hospital, we pride ourselves on providing top-tier healthcare through our extensive resources and state-of-the-art facilities. Equipped with the latest medical technologies and amenities, our hospital ensures that patients receive the highest quality of care possible.
+              </p>
+            </div>
+          </div>
+        
+          <div class="navigation-auto">
+            <div class="auto-btn1"></div>
+            <div class="auto-btn2"></div>
+            <div class="auto-btn3"></div>
+            <div class="auto-btn4"></div>
+          </div>
+        </div>  
+        
+        <div class="navigation-manual">
+          <label for="radio1" class="manual-btn"></label>
+          <label for="radio2" class="manual-btn"></label>
+          <label for="radio3" class="manual-btn"></label>
+          <label for="radio4" class="manual-btn"></label>
+</div>
+</div>
+<script>
+    
+    var counter = 4;
+
+  // Function to update the counter and check the corresponding radio button
+  function updateCounterAndRadioBtn(newCounter) {
+    counter = newCounter;
+    document.getElementById('radio' + counter).checked = true;
+     // Hide all text elements
+     var textElements = document.querySelectorAll('.text');
+    textElements.forEach(function(element) {
+      element.style.display = 'none';
+    });
+
+    // Show text for current image
+    document.getElementById('text' + counter).style.display = 'block';
+  }
+
+  // Function to add event listeners to manual navigation buttons
+  function addEventListenersToManualBtns() {
+    var manualBtns = document.querySelectorAll('.manual-btn');
+    manualBtns.forEach(function(btn, index) {
+      btn.addEventListener('click', function() {
+        updateCounterAndRadioBtn(index + 1);
+      });
+    });
+  }
+
+  // Initialize event listeners for manual navigation buttons
+  addEventListenersToManualBtns();
+
+  // Automatic image sliding
+  setInterval(function() {
+    counter++;
+    if (counter > 4) {
+      counter = 1;
+    }
+    updateCounterAndRadioBtn(counter);
+  }, 5000);
+  
+</script>
+ </section>
+</div>
+  <br>
+  <br>
+
+
+    
+    <div style="background-color: rgb(84, 191, 227);">
+    <section id="doctors">
+        <h2>Our Doctors</h2>
+        Dr. Priyanshu Dubey<br>
+        Dr. Manya Gandhi<br>
+        Dr. Pallavi Kathait<br>
+        Dr. Brijanshi Rastogi<br>
+        Dr. Kushagra Bhardawaj<br>
+        Dr. Yogesh Jain<br>
+    </div>
+    
+    </section>
+
+    <footer id="contact">
+        <table>
+            <thead>
+                <tr>
+                    <th>Address</th>
+                    <th>Contact</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Jindal Hospital<br>
+                        Address Line 1<br>
+                        Address Line 2
+                    </td>
+                    <td>
+                        If you have any questions, feel free to contact us:<br>
+                        Phone: +91 1234567890<br>
+                        Email: info@jindalhospital.com
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+            <br>
+        </div>
+        <p>&copy; 2024 Jindal Hospital. All rights reserved.</p>
+    </footer>
+    <script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+</body>
+
+</html>
